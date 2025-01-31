@@ -31,3 +31,26 @@ Constraints:
 1 <= arr.size() <=104
 1 <= k <= 100
 1 <= arr[i] <= 104
+*/
+
+
+    int minimizeCost(int k, vector<int>& arr) {
+        // Code here
+        int n = arr.size();
+        vector<int> dp (n,-1);
+        
+        dp[0] = 0;
+        dp[1] = abs(arr[1]-arr[0]);
+        
+        for(int i = 2; i<n; i++)
+        {
+            int m = INT_MAX;
+            for(int j = 1; j<=k; j++){
+                if(i-j<0)
+                    break;
+                m = min(m,abs(arr[i]-arr[i-j])+dp[i-j]);
+            }
+            dp[i]=m;
+        }
+        return dp[n-1];
+    }
