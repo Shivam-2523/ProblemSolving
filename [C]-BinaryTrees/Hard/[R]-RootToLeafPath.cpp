@@ -25,20 +25,6 @@ Output: [[10, 20, 40], [10, 20, 60], [10, 30]]
 Explanation: All possible paths: 10->20 ->40, 10->20->60 and 10->30
 */
 
-Definition for Binary Tree Node
-struct Node
-{
-    int data;
-    struct Node* left;
-    struct Node* right;
-
-    Node(int x){
-        data = x;
-        left = right = NULL;
-    }
-};
-*/
-
 class Solution {
   public:
     void helper (Node * root, vector<vector<int>> & ans,vector<int> v)
